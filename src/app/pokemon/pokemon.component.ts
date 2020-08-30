@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'pokemon',
@@ -6,12 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokemon.component.css']
 })
 export class PokemonComponent implements OnInit {
-  name: string;
-  pokedexNumber: number;
+  @Input() name: string;
+  @Input() pokedexNumber: number;
 
   constructor() {
-    this.name = "Bulbasaur";
-    this.pokedexNumber = 1;
   }
 
   ngOnInit(): void {

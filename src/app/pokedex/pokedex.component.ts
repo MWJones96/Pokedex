@@ -7,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokedex.component.css']
 })
 export class PokedexComponent implements OnInit {
-
-  pokemon = [new PokemonComponent(), 
-            new PokemonComponent()];
+  pokemon = Array.from(Array(807), (_, i) => i + 1);
 
   constructor() {
   }
