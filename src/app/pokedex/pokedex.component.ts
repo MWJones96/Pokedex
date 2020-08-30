@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokedex.component.css']
 })
 export class PokedexComponent implements OnInit {
-  pokemon = ["Bulbasaur", "Charmander", "Squirtle"];
-
   constructor() { }
 
   ngOnInit(): void {
