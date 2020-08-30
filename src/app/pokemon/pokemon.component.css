@@ -1,7 +1,15 @@
 .grass-poison {
-    background-image: linear-gradient(to right, #78c850, #a040a0);
+    background-image: linear-gradient(to right, #78c850 50%, #a040a0 50%);
   }
   
 .poison-grass {
-    background-image: linear-gradient(to right, #a040a0, #78c850);
+    background-image: linear-gradient(to right, #a040a0 50%, #78c850 50%);
+}
+
+.fire {
+    background-image: linear-gradient(to right, #f08030 50%, #f08030 50%);
+}
+
+.fire-flying {
+    background-image: linear-gradient(to right, #f08030 50%, #a890f0 50%);
 }
