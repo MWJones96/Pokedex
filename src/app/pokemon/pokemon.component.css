@@ -1,0 +1,7 @@
+.grass-poison {
+    background-image: linear-gradient(to right, #78c850, #a040a0);
+  }
+  
+.poison-grass {
+    background-image: linear-gradient(to right, #a040a0, #78c850);
+}
