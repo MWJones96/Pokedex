@@ -1,5 +1,7 @@
-<div class="col-xl-10" style="margin: auto">
+<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12" style="margin: auto;">
     <div class="row">
-        <pokemon *ngFor="let p of pokemon" [name]='"Bulbasaur"' [pokedexNumber] = "p"></pokemon>
+        <div *ngFor="let p of pokemon" class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-6">
+            <pokemon [name]='"Bulbasaur"' [pokedexNumber]="p" [typeColours]="['grass', 'poison']"></pokemon>
+        </div>
     </div>
 </div>
