@@ -1,8 +1,12 @@
 <br>
-<div class="card text-white bg-success">
+
+
+
+<div class="card text-white type" style="background-image: linear-gradient(to right, {{ typeMap.get(pokemonData.types[0].type.name) }} 50%, {{ typeMap.get(pokemonData.types[pokemonData.types.length > 1 ? 1 : 0].type.name) }} 50%)">
+
   <div class="card-body">
-    <h6 class="card-title text-center">#{{ pokedexNumber }}</h6>
-    <h6 class="text-center">{{ name }}</h6>
-    <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokedexNumber }}.png" alt="{{ pokedexNumber }}">
+    <h6 class="card-title text-center">#{{ pokemonData.id | number:'3.1-5' }}</h6>
+    <h6 class="text-center">{{ pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1) }}</h6>
+    <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemonData.id }}.png" alt="{{ pokemonData.name }}">
   </div>
 </div>

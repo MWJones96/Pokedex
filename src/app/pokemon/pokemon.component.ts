@@ -7,16 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./pokemon.component.css']
 })
 export class PokemonComponent implements OnInit {
-  @Input() name: string;
-  @Input() pokedexNumber: number;
-  @Input() typeColours: string[];
+  @Input() pokemonData: any;
+  @Input() typeMap: any;
 
-  constructor(api: PokeAPIService) {
-    var data = api.getPokemon(1);
-    console.log(data);
+  constructor() {
   }
 
   ngOnInit(): void {
   }
-
 }
