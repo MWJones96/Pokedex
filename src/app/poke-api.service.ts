@@ -11,4 +11,8 @@ export class PokeAPIService {
   getPokemon(id: number): Observable<any> {
     return this.http.get<any>("https://pokeapi.co/api/v2/pokemon/" + id);
   }
+
+  getSpeciesInfo(id: number) : Observable<any> {
+    return this.http.get<any>("https://pokeapi.co/api/v2/pokemon-species/" + id);
+  }
 }

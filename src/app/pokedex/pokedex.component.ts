@@ -11,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class PokedexComponent implements OnInit {
   pokemonIndices = Array.from(Array(151), (_, i) => i + 1);
   pokemon = [];
+  pokemonSpecies = [];
+
   typeToColourMap =  new Map([
       ["normal", "#a8a878"],
       ["fighting", "#c03028"],
@@ -34,11 +36,20 @@ export class PokedexComponent implements OnInit {
 
   constructor(api: PokeAPIService) {
     for (let i of this.pokemonIndices) {
-      api.getPokemon(i).subscribe(res => this.pokemon.push(res));
+      api.getPokemon(i).subscribe(res => {
+        this.pokemon.push(res);
+        this.pokemon.sort((a, b) => (a.id > b.id) ? 1 : -1);
+      });
+
+      api.getSpeciesInfo(i).subscribe(res => {
+        this.pokemonSpecies.push(res);
+        this.pokemonSpecies.sort((a, b) => (a.id > b.id) ? 1 : -1);
+      });
     }
   }
 
   ngOnInit(): void {
+    
   }
 
 }

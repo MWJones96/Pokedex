@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PokemonComponent implements OnInit {
   @Input() pokemonData: any;
+  @Input() pokemonSpecies: any;
   @Input() typeMap: any;
 
   constructor() {
