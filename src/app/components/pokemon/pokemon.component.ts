@@ -17,4 +17,8 @@ export class PokemonComponent implements OnInit {
   getTypeColour(type:string) {
     return this.typeMap.getColourFromMap(type);
   }
+
+  testClick(id: number) {
+    console.log(id);
+  }
 }

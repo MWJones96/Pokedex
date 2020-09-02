@@ -1,5 +1,5 @@
 <br>
-<div class="card text-white type" style="background-image: linear-gradient(to right, {{ getTypeColour(pokemonData.types[0].type.name) }} 50%, {{ getTypeColour(pokemonData.types[pokemonData.types.length > 1 ? 1 : 0].type.name) }} 50%)">
+<div (click)="testClick(pokemonData.id)" class="card text-white type" style="background-image: linear-gradient(to right, {{ getTypeColour(pokemonData.types[0].type.name) }} 50%, {{ getTypeColour(pokemonData.types[pokemonData.types.length > 1 ? 1 : 0].type.name) }} 50%)">
   <div class="card-body">
     <h6 class="card-title text-center">#{{ pokemonData.id | number:'3.0' }}</h6>
     <h6 class="text-center">{{ pokemonSpecies.names[8].name }}</h6>
