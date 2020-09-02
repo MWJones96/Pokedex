@@ -1,5 +1,5 @@
 import { PokeAPIService } from '../../services/poke-api/poke-api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -11,6 +11,8 @@ export class PokedexComponent implements OnInit {
   pokemonIndices = Array.from(Array(386), (_, i) => i + 1);
   pokemon = [];
   pokemonSpecies = [];
+
+  @Output() selectionEvent = new EventEmitter();
 
   constructor(private api: PokeAPIService) {}
 

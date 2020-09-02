@@ -1,5 +1,5 @@
 import { TypeMapService } from './../../services/type-map/type-map.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'pokemon',
@@ -9,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PokemonComponent implements OnInit {
   @Input() pokemonData: any;
   @Input() pokemonSpecies: any;
+  @Output() selectionEvent = new EventEmitter();
 
   constructor(private typeMap: TypeMapService) {}
 
@@ -16,9 +17,5 @@ export class PokemonComponent implements OnInit {
 
   getTypeColour(type:string) {
     return this.typeMap.getColourFromMap(type);
-  }
-
-  testClick(id: number) {
-    console.log(id);
   }
 }
