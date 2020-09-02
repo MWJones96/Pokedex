@@ -1,5 +1,4 @@
-import { PokeAPIService } from './../poke-api.service';
-import { PokemonComponent } from './../pokemon/pokemon.component';
+import { PokeAPIService } from '../../services/poke-api.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -9,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokedex.component.css']
 })
 export class PokedexComponent implements OnInit {
-  pokemonIndices = Array.from(Array(151), (_, i) => i + 1);
+  pokemonIndices = Array.from(Array(251), (_, i) => i + 1);
   pokemon = [];
   pokemonSpecies = [];
 

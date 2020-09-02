@@ -5,8 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PokedexComponent } from './pokedex/pokedex.component';
-import { PokemonComponent } from './pokemon/pokemon.component';
+import { PokedexComponent } from './components/pokedex/pokedex.component';
+import { PokemonComponent } from './components/pokemon/pokemon.component';
 
 @NgModule({
   declarations: [

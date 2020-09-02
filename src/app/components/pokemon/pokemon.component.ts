@@ -1,4 +1,4 @@
-import { PokeAPIService } from './../poke-api.service';
+import { PokeAPIService } from '../../services/poke-api.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
