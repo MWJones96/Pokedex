@@ -1,7 +1,7 @@
 <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12" style="margin: auto;">
     <div class="row">
         <div *ngFor="let p of pokemon; let i = index" class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-6">
-            <pokemon [pokemonData]="pokemon[i]" [pokemonSpecies]="pokemonSpecies[i]" [typeMap]="typeToColourMap"></pokemon>
+            <pokemon [pokemonData]="pokemon[i]" [pokemonSpecies]="pokemonSpecies[i]"></pokemon>
         </div>
     </div>
     <br>

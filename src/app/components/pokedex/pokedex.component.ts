@@ -33,22 +33,19 @@ export class PokedexComponent implements OnInit {
       ["fairy", "#f098b0"]
     ]);
 
-  constructor(api: PokeAPIService) {
+  constructor(private api: PokeAPIService) {}
+
+  ngOnInit(): void {
     for (let i of this.pokemonIndices) {
-      api.getPokemon(i).subscribe(res => {
+      this.api.getPokemon(i).subscribe(res => {
         this.pokemon.push(res);
         this.pokemon.sort((a, b) => (a.id > b.id) ? 1 : -1);
       });
 
-      api.getSpeciesInfo(i).subscribe(res => {
+      this.api.getSpeciesInfo(i).subscribe(res => {
         this.pokemonSpecies.push(res);
         this.pokemonSpecies.sort((a, b) => (a.id > b.id) ? 1 : -1);
       });
     }
   }
-
-  ngOnInit(): void {
-    
-  }
-
 }

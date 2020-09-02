@@ -1,4 +1,4 @@
-import { PokeAPIService } from '../../services/poke-api/poke-api.service';
+import { TypeMapService } from './../../services/type-map/type-map.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -9,11 +9,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PokemonComponent implements OnInit {
   @Input() pokemonData: any;
   @Input() pokemonSpecies: any;
-  @Input() typeMap: any;
 
-  constructor() {
-  }
+  constructor(private typeMap: TypeMapService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  getTypeColour(type:string) {
+    return this.typeMap.getColourFromMap(type);
   }
 }
