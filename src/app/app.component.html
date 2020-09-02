@@ -2,5 +2,5 @@
   <span class="navbar-brand mb-0 h1 text-white">Pok&#233;dex</span>
 </nav>
 
-<pokedex *ngIf="state=='PokedexView'" (selectionEvent)="goToDetailedView($event)"></pokedex>
+<pokedex [hidden]="state!=='PokedexView'" (selectionEvent)="goToDetailedView($event)"></pokedex>
 <detailed-pokemon-view *ngIf="state=='DetailedPokemonView'" (backEvent)="goToPokedexView($event)"></detailed-pokemon-view>
