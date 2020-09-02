@@ -1,8 +1,8 @@
 <br>
-<div (click)="selectionEvent.emit(pokemonData.id)" class="card text-white type" style="background-image: linear-gradient(to right, {{ getTypeColour(pokemonData.types[0].type.name) }} 50%, {{ getTypeColour(pokemonData.types[pokemonData.types.length > 1 ? 1 : 0].type.name) }} 50%)">
+<div (click)="selectionEvent.emit(data.id)" class="card text-white" style="background-image: linear-gradient(to right, {{ getTypeColour(data.types[0]) }} 50%, {{ getTypeColour(data.types[data.types.length > 1 ? 1 : 0]) }} 50%)">
   <div class="card-body">
-    <h6 class="card-title text-center">#{{ pokemonData.id | number:'3.0' }}</h6>
-    <h6 class="text-center">{{ pokemonSpecies.names[8].name }}</h6>
-    <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemonData.id }}.png" alt="{{ pokemonSpecies.names[8].name }}">
+    <h6 class="card-title text-center">#{{ data.id | number:'3.0' }}</h6>
+    <h6 class="text-center">{{ data.name }}</h6>
+    <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ data.id }}.png" alt="{{ data.name }}">
   </div>
 </div>

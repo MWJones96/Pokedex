@@ -1,5 +1,6 @@
 import { TypeMapService } from './../../services/type-map/type-map.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Pokemon } from '../../models/pokemon';
 
 @Component({
   selector: 'pokemon',
@@ -7,8 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./pokemon.component.css']
 })
 export class PokemonComponent implements OnInit {
-  @Input() pokemonData: any;
-  @Input() pokemonSpecies: any;
+  @Input() data: Pokemon;
   @Output() selectionEvent = new EventEmitter();
 
   constructor(private typeMap: TypeMapService) {}
