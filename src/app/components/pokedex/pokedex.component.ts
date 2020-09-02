@@ -2,10 +2,15 @@ import { PokeAPIService } from '../../services/poke-api/poke-api.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Pokemon } from '../../models/pokemon';
 
+import { trigger, state, style, transition,
+  animate, group, query, stagger, keyframes
+} from '@angular/animations';
+
 @Component({
   selector: 'pokedex',
   templateUrl: './pokedex.component.html',
-  styleUrls: ['./pokedex.component.css']
+  styleUrls: ['./pokedex.component.css'],
+
 })
 export class PokedexComponent implements OnInit {
   @Output() selectionEvent = new EventEmitter();
