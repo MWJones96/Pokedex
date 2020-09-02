@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { TypeMapService } from './type-map.service';
 
-import { PokeAPIService } from './poke-api.service';
-
-describe('PokeAPIService', () => {
-  let service: PokeAPIService;
+describe('TypeMapService', () => {
+  let service: TypeMapService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PokeAPIService);
+    service = TestBed.inject(TypeMapService);
   });
 
   it('should be created', () => {
