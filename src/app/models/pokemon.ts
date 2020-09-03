@@ -1,5 +1,5 @@
 export class Pokemon {
-    id: number;
-    name: string;
-    types: string[];
+    id: number = 0;
+    name: string = 'Missingno';
+    types: string[] = ["normal"];
 }
