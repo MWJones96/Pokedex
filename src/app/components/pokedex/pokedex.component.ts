@@ -1,11 +1,6 @@
 import { PokeAPIService } from '../../services/poke-api/poke-api.service';
-import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Pokemon } from '../../models/pokemon';
-
-import { trigger, state, style, transition,
-  animate, group, query, stagger, keyframes
-} from '@angular/animations';
-import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'pokedex',
@@ -16,16 +11,24 @@ import { stringify } from '@angular/compiler/src/util';
 export class PokedexComponent implements OnInit {
   @Output() selectionEvent = new EventEmitter();
   pokemon: Pokemon[] = [];
+  gens: number[] = [1, 152, 252, 387, 494, 650, 722, 808];
+  loaded: boolean = false;
 
   constructor(private api: PokeAPIService) {}
 
   ngOnInit(): void {
-    this.initialisePokedex();
+    this.initialisePokedex(1);
   }
 
-  async initialisePokedex() {
+  onGenChange(gen: number) {
+    this.initialisePokedex(gen);
+  }
+
+  async initialisePokedex(gen: number) {
     await this.api.getPokedex().toPromise().then(async (res) => {
-      let entries = res.pokemon_entries;
+      let entries = (res.pokemon_entries as Array<any>).slice(this.gens[gen-1]-1, this.gens[gen]-1);
+      let offset = entries[0].entry_number;
+
       for (let entry of entries) {
         this.pokemon.push(new Pokemon());
 
@@ -41,10 +44,12 @@ export class PokedexComponent implements OnInit {
 
           await this.api.getSpeciesData(entry.entry_number).toPromise().then(async (res) => {
             data_payload.name = this.getEnglishName(res.names);
-            this.updatePokemon(this.pokemon[res.id-1], data_payload);
+            this.updatePokemon(this.pokemon[res.id-offset], data_payload);
           });
         });
       }
+
+      this.loaded = true;
     });
   }
 
@@ -67,8 +72,8 @@ export class PokedexComponent implements OnInit {
   }
 
   updatePokemon(pokemon: Pokemon, data: any) {
-    this.pokemon[data.id-1].id = data.id
-    this.pokemon[data.id-1].name = data.name;
-    this.pokemon[data.id-1].types = data.types
+    pokemon.id = data.id
+    pokemon.name = data.name;
+    pokemon.types = data.types
   }
 }

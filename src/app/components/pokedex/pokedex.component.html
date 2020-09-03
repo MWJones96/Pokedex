@@ -1,5 +1,12 @@
 <div class="col-xl-10 col-lg-10 col-md-12 coal-sm-12 col-12" style="margin: auto;">
-    <div class="row">
+
+    <div *ngIf="!loaded" class="d-flex justify-content-center" style="margin-top: 15px;">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <div [hidden]="!loaded" class="row">
         <div *ngFor="let p of pokemon" class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-6">
             <pokemon [data]="p" (selectionEvent)="selectionEvent.emit($event)"></pokemon>
         </div>
