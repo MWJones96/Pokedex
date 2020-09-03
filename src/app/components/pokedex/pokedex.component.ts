@@ -13,18 +13,22 @@ export class PokedexComponent implements OnInit {
   pokemon: Pokemon[] = [];
   gens: number[] = [1, 152, 252, 387, 494, 650, 722, 808];
   loaded: boolean = false;
+  currentGen = 1;
 
   constructor(private api: PokeAPIService) {}
 
   ngOnInit(): void {
-    this.initialisePokedex(1);
+    this.initialisePokedex(this.currentGen);
   }
 
   onGenChange(gen: number) {
-    this.initialisePokedex(gen);
+    this.loaded = false;
+    this.currentGen = gen;
+    this.initialisePokedex(this.currentGen);
   }
 
   async initialisePokedex(gen: number) {
+    this.pokemon = [];
     await this.api.getPokedex().toPromise().then(async (res) => {
       let entries = (res.pokemon_entries as Array<any>).slice(this.gens[gen-1]-1, this.gens[gen]-1);
       let offset = entries[0].entry_number;

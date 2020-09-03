@@ -1,8 +1,22 @@
 <div class="col-xl-10 col-lg-10 col-md-12 coal-sm-12 col-12" style="margin: auto;">
 
-    <div *ngIf="!loaded" class="d-flex justify-content-center" style="margin-top: 15px;">
-        <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
+    <div class="btn-group" role="group" style="margin-top: 12px;">
+        <button type="button" class="btn btn-outline-primary" [ngClass]="{'active': currentGen == 1}" (click)="onGenChange(1)">1</button>
+        <button type="button" class="btn btn-outline-primary" [ngClass]="{'active': currentGen == 2}" (click)="onGenChange(2)">2</button>
+        <button type="button" class="btn btn-outline-primary" [ngClass]="{'active': currentGen == 3}" (click)="onGenChange(3)">3</button>
+        <button type="button" class="btn btn-outline-primary" [ngClass]="{'active': currentGen == 4}" (click)="onGenChange(4)">4</button>
+        <button type="button" class="btn btn-outline-primary" [ngClass]="{'active': currentGen == 5}" (click)="onGenChange(5)">5</button>
+        <button type="button" class="btn btn-outline-primary" [ngClass]="{'active': currentGen == 6}" (click)="onGenChange(6)">6</button>
+        <button type="button" class="btn btn-outline-primary" [ngClass]="{'active': currentGen == 7}" (click)="onGenChange(7)">7</button>
+    </div>
+
+    <div *ngIf="!loaded" class="d-flex justify-content-center flex-column align-items-center" style="margin-top: 25px;">
+        <div class="row">
+            <div class="spinner-border text-secondary" role="status">
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+            <p class="text-secondary">Loading Pok&#233;dex...</p>
         </div>
     </div>
 
